@@ -60,6 +60,8 @@ RUN mamba install --quiet --yes \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
+RUN mamba install --quiet --yes 'pandas=1.4.4'
+
 # Install facets which does not have a pip or conda package at the moment
 WORKDIR /tmp
 RUN git clone https://github.com/PAIR-code/facets.git && \
