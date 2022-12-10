@@ -19,6 +19,7 @@ RUN apt-get update --yes && \
     # for latex labels
     cm-super \
     dvipng \
+    python3-pip \
     # for matplotlib anim
     ffmpeg && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -61,6 +62,8 @@ RUN mamba install --quiet --yes \
     fix-permissions "/home/${NB_USER}"
 
 RUN mamba install --quiet --yes 'pandas=1.4.4'
+
+RUN pip install numpy
 
 # Install facets which does not have a pip or conda package at the moment
 WORKDIR /tmp
